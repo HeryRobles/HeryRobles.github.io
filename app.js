@@ -1,0 +1,66 @@
+//Funncion para cargar animaciones
+function cargarAnimaciones(){
+    $(function(){
+        $('.chart1').easyPieChart({
+            size:160,
+            barColor:"#0788b8",
+            scaleLength:0,
+            lineWidth:15,
+            tackColor:"#525151",
+            lineCap:"circle",
+            animate:2000,
+        });
+
+        $('.chart2').easyPieChart({
+            size:160,
+            barColor:"#0788b8",
+            scaleLength:0,
+            lineWidth:15,
+            tackColor:"#525151",
+            lineCap:"circle",
+            animate:2000,
+        });
+
+        $('.chart3').easyPieChart({
+            size:160,
+            barColor:"#0788b8",
+            scaleLength:0,
+            lineWidth:15,
+            tackColor:"#525151",
+            lineCap:"circle",
+            animate:2000,
+        });
+
+        $('.chart4').easyPieChart({
+            size:160,
+            barColor:"#0788b8",
+            scaleLength:0,
+            lineWidth:15,
+            tackColor:"#525151",
+            lineCap:"circle",
+            animate:2000,
+        });
+
+        $('.chart5').easyPieChart({
+            size:160,
+            barColor:"#0788b8",
+            scaleLength:0,
+            lineWidth:15,
+            tackColor:"#525151",
+            lineCap:"circle",
+            animate:2000,
+        });
+
+        $('.chart6').easyPieChart({
+            size:160,
+            barColor:"#0788b8",
+            scaleLength:0,
+            lineWidth:15,
+            tackColor:"#525151",
+            lineCap:"circle",
+            animate:2000,
+        });
+    })
+}
+
+cargarAnimaciones();
