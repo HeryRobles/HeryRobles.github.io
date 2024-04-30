@@ -304,6 +304,9 @@ body{
     background: linear-gradient(to right, #491c37, #8c61a0);
 }
 
+
+
+
 footer{
     background: linear-gradient(to right, #491c37, #8c61a0);
     color: #fff;
@@ -313,6 +316,7 @@ footer{
 }
 
 /* Sección Responsiva para abrir en dispositivo móvil (pendiente por terminar) */
+/*
 @media screen and (max-width:1180px){
     .inicio{
         clip-path: none;
@@ -327,3 +331,4 @@ footer{
         display: none;
     }
 }
+*/
