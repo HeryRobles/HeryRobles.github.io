@@ -11,38 +11,38 @@
     <link rel="stylesheet" href="style.css">
     <title>Mi Portafolio</title>
 </head>
+
 <body>
     <span class="sombra">
         <section id="inicio" class="inicio">
             <div class="contenido">
                 <header>
                     <div class="logo">
-                        <i class="fa-brands fa-codepen"></i>
+                        <i class="fa-solid fa-user-secret"></i>
                         <h1>Mi Portafolio</h1>
                     </div>
-                    <nav id="nav">
+                    <nav id="nav" class="">
                         <a href="#inicio">Inicio</a>
                         <a href="#servicios">Servicios</a>
                         <a href="#habilidades">Habilidades</a>
                         <a href="#contacto">Contacto</a>
                     </nav>
+
+                    <!--Icono del menu responsive-->
                     <div id="icono-nav">
                         <i class="fa-solid fa-bars"></i>
                     </div>
     
                     <div class="redes">
-                        <a href="https://www.facebook.com/heryrobles/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://github.com/HeryRobles" target="_blank"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.instagram.com/heryroblesc/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://wa.me/qr/TQDCHI2TB37CF1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </header>
+                
                 <div class="fila">
                     <div class="col">
                         <h2>Acerca de mi...</h2>
-                        <p>¡Hola! Soy Heriberto Robles, estudiante de Ingeniería en Sistemas Computacionales en la Universidad Kino. Mi enfoque actual se centra en explorar y dominar las funcionalidades del software, así como en el desarrollo de aplicaciones móviles, con la meta de forjar una carrera profesional sólida como desarrollador backend.
-                            <br>En este espacio, compartiré detalles sobre mi trayectoria académica, habilidades técnicas y los proyectos en los que he trabajado. Estoy emocionado por la oportunidad de presentarte mi portafolio, donde podrás conocer más a fondo mi pasión por la programación y cómo he aplicado mis conocimientos en proyectos concretos.
-                            ¡Espero que disfrutes explorando mi portafolio y conozcas más sobre mi viaje en el mundo del desarrollo de software! </p>
+                        <p>¡Hola! Soy Heriberto Robles, estudiante de ingeniería en Sistemas y en este espacio, compartiré detalles sobre mi experiencia programando y desarrollando proyectos. ¡Espero que disfrutes explorando mi portafolio y conozcas más sobre mi viaje en el mundo del desarrollo de software!</p>
                         <button class="btn btn-1" id="descargarCV" download="docs/cv.pdf">Descargar CV</button>
                     </div>
                     <div class="col">
@@ -57,6 +57,10 @@
 
     <!--seccion S E R V I C I O S-->
     <section id="servicios" class="servicios">
+        <br>
+        <h1>Servicios</h1>
+        <hr>
+        <br>
         <div class="fila">
             <div class="col">
                 <div class="card">
@@ -66,10 +70,8 @@
                         </div>
                     </div>
                     <h3>Desarrollador Backend Jr</h3>
-                    <p id="backendText">Me especializo en la creación y optimización de la lógica detrás de 
-                        las aplicaciones web. Mi enfoque se centra en diseñar sistemas eficientes que impulsan el funcionamiento
-                         de las aplicaciones. Desde la implementación de bases de datos hasta la gestión de servidores, 
-                         estoy comprometido con garantizar un rendimiento excepcional y una experiencia de usuario sin contratiempos.</p>
+                    <p class="card-text">Me especializo en la creación y optimización de la lógica detrás de las aplicaciones web. Mi enfoque se centra en diseñar sistemas eficientes que impulsan el funcionamiento de las aplicaciones. Desde la implementación de bases de datos hasta la gestión de servidores, estoy comprometido con garantizar un rendimiento excepcional y una experiencia de usuario sin contratiempos.</p>
+                    <a class="toggle-text">Leer más...</a>
                 </div>
             </div>
             <div class="col">
@@ -80,7 +82,8 @@
                         </div>
                     </div>
                     <h3>Desarrollador de aplicaciones móviles</h3>
-                    <p>Mi enfoque se centra en convertir ideas innovadoras en experiencias interactivas. Con habilidades en el desarrollo de aplicaciones para dispositivos móviles con dotNet MAUI, estoy comprometido a contribuir al diseño y ejecución de soluciones eficientes. Mi pasión por la programación móvil se refleja en la creación de interfaces intuitivas y funcionales.</p>
+                    <p class="card-text">Mi enfoque se centra en convertir ideas innovadoras en experiencias interactivas. Con habilidades en el desarrollo de aplicaciones para dispositivos móviles con dotNet MAUI, estoy comprometido a contribuir al diseño y ejecución de soluciones eficientes. Mi pasión por la programación móvil se refleja en la creación de interfaces intuitivas y funcionales.</p>
+                    <a class="toggle-text">Leer más...</a>
                 </div>
             </div>
             <div class="col">
@@ -91,93 +94,91 @@
                         </div>
                     </div>
                     <h3>Administrador de Bases de datos Jr</h3>
-                    <p>Como administrador de bases de datos Jr, me especializo en garantizar la eficiencia y seguridad de la gestión de datos. Mi enfoque se centra en aprender y aplicar las mejores prácticas para bases de datos relacionales y no relacionales. <br>Estoy comprometido con optimizar consultas, implementar respaldos efectivos y contribuir al rendimiento exitoso de los proyectos a través de una sólida administración de datos. </p>
+                    <p class="card-text">Como administrador de bases de datos Jr, me especializo en garantizar la eficiencia y seguridad de la gestión de datos. Mi enfoque se centra en aprender y aplicar las mejores prácticas para bases de datos relacionales y no relacionales. Estoy comprometido con optimizar consultas, implementar respaldos efectivos y contribuir al rendimiento exitoso de los proyectos a través de una sólida administración de datos.</p>
+                    <a class="toggle-text">Leer más...</a>
                 </div>
-            </div>
             </div>
         </div>
     </section>
+    
 
     <!--sección H A B I L I D A D E S-->
+    
     <section class="habilidades" id="habilidades">
-        <div class="contenedor-habi">
-            <h2>HABILIDADES</h2>
-            <div class="fila">
-                <div class="col">
-                    <div class="score">
-                        <div class="box">
-                            <div class="chart chart1" data-percent="70">
-                                70%
-                            </div>
-                            <img src="img/imagen-c.svg"/>
-                            <h2>C#</h2>
-                        </div>
-                    </div>
+        <div class="contenedor-skills">
+            <br>
+            <h1 class="titulo">Habilidades</h1>
+            <hr>
+            <br>
+            <div class="skills-poster-grid">
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/blazor.png" alt="Blazor">
                 </div>
-                <div class="col">
-                    <div class="score">
-                        <div class="box">
-                            <div class="chart chart2" data-percent="70">
-                                70%
-                            </div>
-                            <img src="img/imagen-blazor.png"/>
-                            <h2>Blazor</h2>
-                        </div>
-                    </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/flask.png" alt="Flask">
                 </div>
-                <div class="col">
-                    <div class="score">
-                        <div class="box">
-                            <div class="chart chart3" data-percent="70">
-                                70%|
-                            </div>
-                            <img src="img/imagen-maui.png" alt="maui">
-                            <h2>dotNET MAUI</h2>
-                        </div>
-                    </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/dotnet.png" alt="aspNet">
                 </div>
-            </div>
-            <div class="fila">
-                <div class="col">
-                    <div class="score">
-                        <div class="box">
-                            <div class="chart chart4" data-percent="55">
-                                55%
-                            </div>
-                            <img src="img/imagen-mongodb.png"/>
-                            <h2>Mongo DB</h2>
-                        </div>
-                    </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/maui.png" alt="maui">
                 </div>
-                <div class="col">
-                    <div class="score">
-                        <div class="box">
-                            <div class="chart chart5" data-percent="60">
-                                60%
-                            </div>
-                            
-                            <img src="img/imagen-sql.png"/>
-                            <h2>Microsoft SQL Server</h2>
-                        </div>
-                    </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/csharp.png" alt="csharp">
                 </div>
-                <div class="col">
-                    <div class="score">
-                        <div class="box">
-                            <div class="chart chart6" data-percent="60">
-                                60%
-                            </div>
-                            <img src="img/imagen-js.png" alt="JAVASCRIPT">
-                            <h2>JAVASCRIPT</h2>
-                        </div>
-                    </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/py.png" alt="python">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/xaml.png" alt="xaml">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/java.png" alt="java">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/html.png" alt="HTML">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/css.png" alt="css">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/js.png" alt="javascript">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/boostrap.png" alt="Boostrap">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/nodejs.png" alt="nodejs">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/nodemon.png" alt="Nodemon">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/git.png" alt="Git">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/mysql.png" alt="MySql">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/mongodb.png" alt="mongodb">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/sql.png" alt="SqlServer">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/postman.png" alt="Postman">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/androidstudio.png" alt="AndroidStudio">
+                </div>
+                <div class="skill-item">
+                    <img class="img-fluid poster" src="img/vscode.png" alt="VSCode">
                 </div>
             </div>
         </div>
     </section>
-
+    <script src="app.js"></script>
     <!--Sección de Proyectos-->
-
 
     <!-- sección contacto -->
     <section class="contacto" id="contacto">
@@ -211,12 +212,8 @@
             </div>
         </div>
     </section>
-
     <footer>
         <p>Creado por HakiCoder / 2023 - Kaizoku ou ni ore wa naru!</p>
     </footer>
-
-    <script src="app.js"></script>
-
 </body>
 </html>
