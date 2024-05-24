@@ -236,14 +236,15 @@ body{
     background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  
     background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
     color: #fff;
-    padding: 60px 0;
+    padding: 50px;
     position: relative;
+    margin: auto;
     
 }
 
 .habilidades .contenedor-skills {
     max-width: 1200px;
-    margin: 0 10px;
+    margin: auto;
 }
 
 .habilidades .skills-poster-grid {
