@@ -66,6 +66,42 @@ document.querySelectorAll('.toggle-text').forEach(link => {
     });
 });
 
+function responsiveMenu() {
+    let x = document.getElementById("nav");
+    if (x.className === "") {
+        x.className = "responsive";
+
+        // Creamos el elemento que cierra el menú
+        let span = document.createElement("span");
+        span.innerHTML = "X";
+        document.getElementById("nav").appendChild(span);
+
+        // Quitamos el botón eliminar cuando se hace clic sobre este
+        span.onclick = function() {
+            x.className = "";
+            span.remove();
+        }
+    } else {
+        x.className = "";
+    }
+}
+
+// Este código es para agregar una función a cada link del menú responsive
+// Cuando se presione en cualquier de los links del menú debe desaparecer el menú
+const links = document.querySelectorAll("#nav a");
+for (let i = 0; i < links.length; i++) {
+    links[i].onclick = function() {
+        let x = document.getElementById("nav");
+        x.className = "";
+
+        // Removemos el botón eliminar
+        let btnEliminar = document.querySelector("#nav span");
+        if (btnEliminar) {
+            btnEliminar.remove();
+        }
+    }
+}
+
 
 cargarAnimaciones();
 

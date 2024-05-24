@@ -368,7 +368,7 @@ footer{
     text-align: center;
 }
 
-/* Sección Responsiva para abrir en dispositivo móvil (pendiente por terminar) */
+/* Sección Responsiva para abrir en dispositivo móvil  */
 
 @media screen and (max-width:1180px){
     .inicio{
@@ -399,9 +399,18 @@ footer{
     }
     #nav.responsive a{
         font-size: 30px;
+        color: white;
+        margin: 10px 0;
+    }
+    #nav span{
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
     }
     #icono-nav{
         display: block;
+        cursor: pointer;
     }
 
     .inicio{
@@ -469,6 +478,4 @@ footer{
     .contacto .contenedor-contacto h2{
         margin-bottom: 0;
     }
-
 }
-
