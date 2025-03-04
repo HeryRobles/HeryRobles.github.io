@@ -1,4 +1,4 @@
-//Funncion para cargar animaciones
+// Función para cargar animaciones
 $(function () {
     $('.chart1').animate({ width: '80%' }, 2000); 
     $('.chart2').animate({ width: '60%' }, 2000); 
@@ -8,11 +8,8 @@ $(function () {
     $('.chart6').animate({ width: '75%' }, 2000); 
 });
 
-
-//Codigo para mostrar msje en sweetAlert para contacto
-
+// Código para mostrar mensaje en SweetAlert para contacto
 document.addEventListener('DOMContentLoaded', function () {
-    
     const enviarBtn = document.querySelector('.contacto .btn');
 
     enviarBtn.addEventListener('click', function (event) {
@@ -44,28 +41,60 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-//Codigo para descargar CV
-
+// Código para descargar CV
 document.addEventListener('DOMContentLoaded', function () {
     const descargarCVBtn = document.getElementById('descargarCV');
 
     descargarCVBtn.addEventListener('click', function () {
         const rutaPDF = 'docs/cv.pdf';
-
         window.location.href = rutaPDF;
     });
 });
 
-//Codigo para expandir tarjeta de servicios
-document.querySelectorAll('.toggle-text').forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const card = this.closest('.card');
-        card.classList.toggle('expanded');
-        this.textContent = card.classList.contains('expanded') ? 'Leer menos...' : 'Leer más...';
+
+// Código para expandir tarjeta de servicios
+document.addEventListener('DOMContentLoaded', function () {
+    function toggleReadMore() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const cardText = card.querySelector('.card-text');
+            const toggleText = card.querySelector('.toggle-text');
+
+            // Mostrar o ocultar el enlace "Leer más" dependiendo de si el texto está cortado
+            if (cardText.scrollHeight > cardText.clientHeight) {
+                toggleText.style.display = 'block';
+            } else {
+                toggleText.style.display = 'none';
+            }
+        });
+    }
+
+    // Llamamos a la función para asegurarnos de que las tarjetas estén bien inicializadas
+    toggleReadMore();
+
+    // Evento de clic para expandir o contraer el texto
+    document.querySelectorAll('.toggle-text').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const cardText = e.target.closest('.card').querySelector('.card-text');
+            const toggleText = e.target;
+
+            // Cambiar la clase y el texto de "Leer más" / "Leer menos"
+            if (cardText.classList.contains('expanded')) {
+                cardText.classList.remove('expanded');
+                toggleText.textContent = 'Leer más...';
+            } else {
+                cardText.classList.add('expanded');
+                toggleText.textContent = 'Leer menos...';
+            }
+        })
     });
+
+    // Aseguramos que el texto se oculte o muestre correctamente al cambiar el tamaño de la ventana
+    window.addEventListener('resize', toggleReadMore);
 });
 
+
+// Función para el menú responsive
 function responsiveMenu() {
     let x = document.getElementById("nav");
     if (x.className === "") {
@@ -101,7 +130,6 @@ for (let i = 0; i < links.length; i++) {
         }
     }
 }
-
 
 cargarAnimaciones();
 
