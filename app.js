@@ -1,39 +1,75 @@
-// Función para cargar animaciones
-$(function () {
-    $('.chart1').animate({ width: '80%' }, 2000); 
-    $('.chart2').animate({ width: '60%' }, 2000); 
-    $('.chart3').animate({ width: '90%' }, 2000); 
-    $('.chart4').animate({ width: '70%' }, 2000); 
-    $('.chart5').animate({ width: '50%' }, 2000); 
-    $('.chart6').animate({ width: '75%' }, 2000); 
+// ── Descargar CV ──────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+    const descargarCVBtn = document.getElementById('descargarCV');
+    if (descargarCVBtn) {
+        descargarCVBtn.addEventListener('click', function () {
+            window.location.href = 'docs/cv.pdf';
+        });
+    }
 });
 
-// Código para mostrar mensaje en SweetAlert para contacto
+// ── Tarjetas: expandir / contraer texto ───────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.card').forEach(function (card) {
+        const text   = card.querySelector('.card-text');
+        const btn    = card.querySelector('.toggle-btn');
+
+        if (!text || !btn) return;
+
+        // Si el texto cabe completo, ocultamos el botón
+        if (text.scrollHeight <= text.clientHeight) {
+            btn.style.display = 'none';
+            return;
+        }
+
+        btn.addEventListener('click', function () {
+            const expanded = text.classList.toggle('expanded');
+            btn.textContent    = expanded ? 'Leer menos...' : 'Leer más...';
+            btn.setAttribute('aria-expanded', expanded);
+        });
+    });
+
+    // Re-evaluar visibilidad del botón al redimensionar
+    window.addEventListener('resize', function () {
+        document.querySelectorAll('.card').forEach(function (card) {
+            const text = card.querySelector('.card-text');
+            const btn  = card.querySelector('.toggle-btn');
+            if (!text || !btn) return;
+
+            if (!text.classList.contains('expanded')) {
+                btn.style.display = text.scrollHeight > text.clientHeight ? 'inline-block' : 'none';
+            }
+        });
+    });
+});
+
+// ── Formulario de contacto ────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
     const enviarBtn = document.querySelector('.contacto .btn');
+    if (!enviarBtn) return;
 
     enviarBtn.addEventListener('click', function (event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
-        const nombreInput = document.querySelector('input[placeholder="Nombre..."]');
-        const correoInput = document.querySelector('input[placeholder="Correo..."]');
-        const mensajeTextarea = document.querySelector('textarea[placeholder="Mensaje..."]');
+        const nombre  = document.querySelector('input[placeholder="Nombre..."]');
+        const correo  = document.querySelector('input[placeholder="Correo..."]');
+        const mensaje = document.querySelector('textarea[placeholder="Mensaje..."]');
 
-        if (nombreInput.value.trim() !== '' && correoInput.value.trim() !== '' && mensajeTextarea.value.trim() !== '') {
-            nombreInput.value = '';
-            correoInput.value = '';
-            mensajeTextarea.value = '';
+        if (nombre.value.trim() && correo.value.trim() && mensaje.value.trim()) {
+            nombre.value  = '';
+            correo.value  = '';
+            mensaje.value = '';
 
             Swal.fire({
                 title: 'Mensaje enviado',
-                text: '¡Gracias por tu mensaje, me pondré en contacto con usted muy pronto!',
+                text: '¡Gracias por tu mensaje, me pondré en contacto contigo muy pronto!',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             });
         } else {
             Swal.fire({
-                title: 'Error',
-                text: 'Por favor, llena todos los campos',
+                title: 'Campos vacíos',
+                text: 'Por favor, llena todos los campos.',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             });
@@ -41,163 +77,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Código para descargar CV
-document.addEventListener('DOMContentLoaded', function () {
-    const descargarCVBtn = document.getElementById('descargarCV');
-
-    descargarCVBtn.addEventListener('click', function () {
-        const rutaPDF = 'docs/cv.pdf';
-        window.location.href = rutaPDF;
-    });
-});
-
-
-// Código para expandir tarjeta de servicios
-document.addEventListener('DOMContentLoaded', function () {
-    function toggleReadMore() {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            const cardText = card.querySelector('.card-text');
-            const toggleText = card.querySelector('.toggle-text');
-
-            // Mostrar o ocultar el enlace "Leer más" dependiendo de si el texto está cortado
-            if (cardText.scrollHeight > cardText.clientHeight) {
-                toggleText.style.display = 'block';
-            } else {
-                toggleText.style.display = 'none';
-            }
-        });
-    }
-
-    // Llamamos a la función para asegurarnos de que las tarjetas estén bien inicializadas
-    toggleReadMore();
-
-    // Evento de clic para expandir o contraer el texto
-    document.querySelectorAll('.toggle-text').forEach(link => {
-        link.addEventListener('click', function (e) {
-            const cardText = e.target.closest('.card').querySelector('.card-text');
-            const toggleText = e.target;
-
-            // Cambiar la clase y el texto de "Leer más" / "Leer menos"
-            if (cardText.classList.contains('expanded')) {
-                cardText.classList.remove('expanded');
-                toggleText.textContent = 'Leer más...';
-            } else {
-                cardText.classList.add('expanded');
-                toggleText.textContent = 'Leer menos...';
-            }
-        })
-    });
-
-    // Aseguramos que el texto se oculte o muestre correctamente al cambiar el tamaño de la ventana
-    window.addEventListener('resize', toggleReadMore);
-});
-
-
-// Función para el menú responsive
+// ── Menú responsive ───────────────────────────────────────────────────────────
 function responsiveMenu() {
-    let x = document.getElementById("nav");
-    if (x.className === "") {
-        x.className = "responsive";
+    const nav = document.getElementById('nav');
+    if (!nav) return;
 
-        // Creamos el elemento que cierra el menú
-        let span = document.createElement("span");
-        span.innerHTML = "X";
-        document.getElementById("nav").appendChild(span);
+    if (nav.className === '') {
+        nav.className = 'responsive';
 
-        // Quitamos el botón eliminar cuando se hace clic sobre este
-        span.onclick = function() {
-            x.className = "";
+        const span     = document.createElement('span');
+        span.innerHTML = 'X';
+        nav.appendChild(span);
+
+        span.onclick = function () {
+            nav.className = '';
             span.remove();
-        }
+        };
     } else {
-        x.className = "";
+        nav.className = '';
+        const existingSpan = nav.querySelector('span');
+        if (existingSpan) existingSpan.remove();
     }
 }
 
-// Este código es para agregar una función a cada link del menú responsive
-// Cuando se presione en cualquier de los links del menú debe desaparecer el menú
-const links = document.querySelectorAll("#nav a");
-for (let i = 0; i < links.length; i++) {
-    links[i].onclick = function() {
-        let x = document.getElementById("nav");
-        x.className = "";
-
-        // Removemos el botón eliminar
-        let btnEliminar = document.querySelector("#nav span");
-        if (btnEliminar) {
-            btnEliminar.remove();
-        }
-    }
-}
-
-cargarAnimaciones();
-
-
-
-
-
-
-// function cargarAnimaciones(){
-//     $(function(){
-//         $('.chart1').easyPieChart({
-//             size:160,
-//             barColor:"#0788b8",
-//             scaleLength:0,
-//             lineWidth:15,
-//             tackColor:"#525151",
-//             lineCap:"circle",
-//             animate:2000,
-//         });
-
-//         $('.chart2').easyPieChart({
-//             size:160,
-//             barColor:"#0788b8",
-//             scaleLength:0,
-//             lineWidth:15,
-//             tackColor:"#525151",
-//             lineCap:"circle",
-//             animate:2000,
-//         });
-
-//         $('.chart3').easyPieChart({
-//             size:160,
-//             barColor:"#0788b8",
-//             scaleLength:0,
-//             lineWidth:15,
-//             tackColor:"#525151",
-//             lineCap:"circle",
-//             animate:2000,
-//         });
-
-//         $('.chart4').easyPieChart({
-//             size:160,
-//             barColor:"#0788b8",
-//             scaleLength:0,
-//             lineWidth:15,
-//             tackColor:"#525151",
-//             lineCap:"circle",
-//             animate:2000,
-//         });
-
-//         $('.chart5').easyPieChart({
-//             size:160,
-//             barColor:"#0788b8",
-//             scaleLength:0,
-//             lineWidth:15,
-//             tackColor:"#525151",
-//             lineCap:"circle",
-//             animate:2000,
-//         });
-
-//         $('.chart6').easyPieChart({
-//             size:160,
-//             barColor:"#0788b8",
-//             scaleLength:0,
-//             lineWidth:15,
-//             tackColor:"#525151",
-//             lineCap:"circle",
-//             animate:2000,
-//         });
-//     })
-// }
+// Cerrar menú al pulsar cualquier enlace
+document.querySelectorAll('#nav a').forEach(function (link) {
+    link.addEventListener('click', function () {
+        const nav  = document.getElementById('nav');
+        if (!nav) return;
+        nav.className = '';
+        const span = nav.querySelector('span');
+        if (span) span.remove();
+    });
+});

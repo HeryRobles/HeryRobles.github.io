@@ -1,57 +1,60 @@
 /* Importamos la Fuente */
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;800&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'M PLUS Rounded 1c';
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
-body{
-    background: #ADA996;
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); 
 
+body {
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
 }
 
-/*Seccion I N I C I O */
+/* ── INICIO ──────────────────────────────────────────────────────────────── */
 .inicio {
-    background: 
-        linear-gradient(rgb(21, 20, 20), rgba(31, 30, 31, 0.8)), 
+    background:
+        linear-gradient(rgb(21, 20, 20), rgba(31, 30, 31, 0.8)),
         url(img/inicio.jpg);
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 66%, 49% 100%, 0 64%);
     height: 100vh;
     padding: 10px 20px;
     margin: auto;
-    color: white; 
+    color: white;
 }
 
-.inicio .contenido{
+.inicio .contenido {
     max-width: 1100px;
     margin: auto;
-    color:#fff;
+    color: #fff;
 }
 
-.inicio header{
+.inicio header {
     display: flex;
     justify-content: space-between;
     padding: 30px 0;
     align-items: center;
 }
-.inicio .logo{
+
+.inicio .logo {
     display: flex;
     align-items: center;
     color: #00deef;
     font-size: 25px;
 }
-.inicio .logo i{
+
+.inicio .logo i {
     display: inline-block;
     margin-right: 20px;
 }
-#inicio header nav a{
+
+#inicio header nav a {
     color: #fff;
     text-decoration: none;
     display: inline-block;
@@ -59,46 +62,50 @@ body{
     text-transform: uppercase;
     border: 2px solid transparent;
 }
-#inicio header nav a:hover{
+
+#inicio header nav a:hover {
     border-bottom: 2px solid rgb(0, 255, 255);
 }
 
-.inicio .redes a{
+.inicio .redes a {
     text-decoration: none;
     color: #fff;
     display: inline-block;
     margin: 0 10px;
 }
-.inicio .redes a:hover{
-    color: rgb(0, 255, 255)
+
+.inicio .redes a:hover {
+    color: rgb(0, 255, 255);
 }
 
-.inicio .fila{
+.inicio .fila {
     display: flex;
     padding-bottom: 10px;
 }
 
-.inicio .fila .col{
+.inicio .fila .col {
     width: 50%;
 }
-.inicio .fila .col h2{
+
+.inicio .fila .col h2 {
     margin-bottom: 15px;
     font-size: 40px;
 }
-.inicio .fila .col p{
+
+.inicio .fila .col p {
     margin-bottom: 20px;
 }
 
-.inicio .fila .col .contenedor-img{
+.inicio .fila .col .contenedor-img {
     max-width: 289px;
     margin: auto;
 }
 
-.inicio .fila .col .contenedor-img img{
-    width: 105%; 
+.inicio .fila .col .contenedor-img img {
+    width: 105%;
 }
 
-.inicio .fila .col button{
+.inicio .fila .col button {
     background: none;
     width: fit-content;
     padding: 5px 40px;
@@ -109,11 +116,12 @@ body{
     cursor: pointer;
     font-weight: bold;
 }
-.inicio .fila .col button:hover{
+
+.inicio .fila .col button:hover {
     transform: scale(1.1);
 }
 
-#icono-nav{
+#icono-nav {
     height: 30px;
     width: 30px;
     text-align: center;
@@ -123,55 +131,73 @@ body{
     cursor: pointer;
     display: none;
 }
-#icono-nav:hover{
+
+#icono-nav:hover {
     background-color: #3e3e3e;
 }
 
-.sombra{
+.sombra {
     filter: drop-shadow(0em 30px 20px #1a101b);
 }
 
-/* sección S E R V I C I O S */
+/* ── SERVICIOS ───────────────────────────────────────────────────────────── */
 .servicios {
+    max-width: 1100px;
     margin: auto;
     padding: 0 20px;
     position: relative;
     top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 160px;
     z-index: 10;
 }
+
+.servicios h1 {
+    color: #050505;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.servicios hr {
+    border-color: #240b36;
+    margin: 20px 0 40px;
+}
+
 .servicios .fila {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    gap: 20px;
+    align-items: flex-start;    /* ← clave: columnas no se estiran entre sí */
 }
+
 .servicios .fila .col {
-    text-align: center;
-    width: 30%;
+    flex: 1;
+    min-width: 0;
 }
+
+/* La card NO tiene altura fija ni overflow hidden */
 .servicios .fila .col .card {
     border: 1px solid #8d8d8d;
     background-color: #fff;
-    padding: 30px;
+    padding: 30px 30px 20px;
     border-radius: 20px;
-    position: relative;
-    height: auto;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
+/* Icono */
 .servicios .icono {
     width: 70px;
     height: 70px;
-    margin: auto;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
+    flex-shrink: 0;
 }
+
 .servicios .icono .circulo {
     width: 90%;
     height: 90%;
@@ -183,88 +209,64 @@ body{
     color: #fff;
     font-size: 20px;
 }
-.color1 {
-    background: linear-gradient(#36D1DC, #5B86E5);
-}
-.color2 {
-    background: linear-gradient(#C33764, #1D2671);
-}
-.color3 {
-    background: linear-gradient(#159957, #155799);
-}
+
+.color1 { background: linear-gradient(#36D1DC, #5B86E5); }
+.color2 { background: linear-gradient(#C33764, #1D2671); }
+.color3 { background: linear-gradient(#159957, #155799); }
 
 .servicios h3 {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
-.servicios .card p.card-text {
+
+/* Envuelve texto + botón */
+.card-body {
+    width: 100%;
+}
+
+/*
+ * TEXTO: colapsado = altura fija con overflow hidden.
+ * La transición anima la max-height para un efecto suave.
+ */
+.card-text {
     color: #101010;
     line-height: 28px;
     font-size: 12px;
-    max-height: 200px;
+    /* Muestra aprox. 4 líneas colapsadas */
+    max-height: 112px;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
 }
 
-.card-text {
-    max-height: 100px;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-}
+/* Expandido: valor suficientemente grande para cualquier texto */
 .card-text.expanded {
-    max-height: none;
+    max-height: 600px;
 }
 
-.toggle-text {
-    display: block; /* Cambiar de 'none' a 'block' para que sea visible */
-    cursor: pointer;
-    color: #007bff;
-    font-weight: bold;
+/* Botón toggle */
+.toggle-btn {
+    display: inline-block;
     margin-top: 10px;
-    align-self: center; /* Centra el enlace */
-    margin-bottom: 0; /* Asegúrate de que no haya margen extra */
-}
-
-.servicios .card.expanded p.card-text {
-    max-height: 1000px;
-}
-.servicios .card a {
-    text-decoration: none;
+    background: none;
+    border: none;
     cursor: pointer;
     color: #075391;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 13px;
     text-decoration: underline;
-    position: absolute;
-    bottom: 10px; /* Mueve el enlace al fondo de la tarjeta */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    text-align: center; /* Centra el texto */
+    padding: 0;
+    font-family: inherit;
 }
 
-.servicios h1 {
-    color: #050505;
-    margin-top: 10px;
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: bold;
+.toggle-btn:hover {
+    color: #0788b8;
 }
 
-.servicios hr {
-    border-color: #240b36;
-    margin-bottom: 40px;
-    margin-top: 40px;
-}
-
-/*Seccion S K I L L S */
+/* ── HABILIDADES ─────────────────────────────────────────────────────────── */
 .habilidades {
-    background: #ADA996;
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  
     background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
     color: #fff;
-    padding: 50px;
-    position: relative;
+    padding: 50px 20px;
     margin: auto;
-    
 }
 
 .habilidades .contenedor-skills {
@@ -272,144 +274,138 @@ body{
     margin: auto;
 }
 
-.habilidades .skills-poster-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-items: center; 
-}
-
-.skill-item {
-    background-color: #3a3b3c;
-    padding: 70px;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s;
-    width: 120px;  
-    height: 120px;  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    filter: drop-shadow(0em 30px 20px #4d484e);
-}
-
-.skill-item:hover {
-    transform: scale(1.05);
-}
-
-.poster {
-    width: 90px;
-    height: 90px;
-    border-radius: 8px;
-}
-
+.habilidades h1,
 .titulo {
     color: #050505;
-    margin-top: 10px;
     text-align: center;
-}
-
-.habilidades h1 {
-    color: #050505;
     margin-top: 10px;
-    text-align: center;
     margin-bottom: 10px;
-    font-size: bold;
 }
 
 .habilidades hr {
     border-color: #240b36;
-    margin-bottom: 40px;
-    margin-top: 40px;
+    margin: 20px 0 40px;
 }
 
-/*Seccion C O N T A C T O */
-.contacto{
+/* Grid: auto-fill garantiza mínimo 3 columnas en móvil forzando minmax menor */
+.skills-poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 16px;
+    justify-items: center;
+}
+
+.skill-item {
+    background-color: #3a3b3c;
+    border-radius: 8px;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+    filter: drop-shadow(0 8px 10px #4d484e);
+}
+
+.skill-item:hover {
+    transform: scale(1.08);
+}
+
+.poster {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+/* ── CONTACTO ─────────────────────────────────────────────────────────────── */
+.contacto {
     background:
         linear-gradient(rgb(21, 20, 20), rgba(31, 30, 31, 0.8)),
         url(img/contacto.jpg);
-        background-size: cover;
-        color: #fff;
-        margin-top: 100px;
-        padding: 30px 20px;
-        font-size: bold;
+    background-size: cover;
+    color: #fff;
+    margin-top: 100px;
+    padding: 30px 20px;
 }
-.contacto .contenedor-contacto{
+
+.contacto .contenedor-contacto {
     max-width: 1100px;
     margin: auto;
 }
-.contacto h2{
+
+.contacto h2 {
     text-align: center;
     padding-bottom: 50px;
 }
-.contacto .contenedor-contacto .fila{
+
+.contacto .contenedor-contacto .fila {
     display: flex;
 }
-.contacto .contenedor-contacto .fila .col{
+
+.contacto .contenedor-contacto .fila .col {
     width: 50%;
 }
-.contacto .contenedor-contacto .info{
+
+.contacto .contenedor-contacto .info {
     margin-bottom: 30px;
     border-left: 3px solid #8d8d8d;
     padding-left: 8px;
 }
-.contacto .contenedor-contacto .info p{
+
+.contacto .contenedor-contacto .info p {
     color: #8d8d8d;
 }
-.contacto input, .contacto textarea{
+
+.contacto input,
+.contacto textarea {
     width: 100%;
     border: none;
     background-color: transparent;
     padding: 10px;
-    border: 1px solid #8d8d8d ;
+    border: 1px solid #8d8d8d;
     margin-bottom: 20px;
     outline: none;
     color: #fff;
 }
-.contacto .btn{
-    background: none;
+
+.contacto .btn {
+    background: linear-gradient(to right, #0788b8, #afe2f5);
     padding: 6px 40px;
     border: 2px solid #0788b8;
     color: #47034c;
-    background: linear-gradient(to right, #0788b8, #afe2f5);
     transition: .5s;
     cursor: pointer;
     font-weight: bold;
 }
 
-.contacto .btn:hover{
+.contacto .btn:hover {
     transform: scale(1.1);
 }
 
-
-footer{
-    background: #ADA996;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* ── FOOTER ─────────────────────────────────────────────────────────────── */
+footer {
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
     color: #080808;
     padding: 5px 0;
     font-size: 10px;
     text-align: center;
 }
 
-/* Sección Responsiva para abrir en dispositivo móvil  */
-
-@media screen and (max-width:1180px){
-    .inicio{
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media screen and (max-width: 1180px) {
+    .inicio {
         clip-path: none;
     }
 }
 
-@media screen and (max-width:800px){
-    .redes{
-        display: none;
-    }
-    #nav{
-        display: none;
-    }
-    #nav.responsive{
-        background-color: rgba(0,0,0,.9);
+@media screen and (max-width: 800px) {
+    /* Menú */
+    .redes { display: none; }
+    #nav   { display: none; }
+
+    #nav.responsive {
+        background-color: rgba(0, 0, 0, .9);
         top: 0;
         left: 0;
         height: 100vh;
@@ -422,85 +418,107 @@ footer{
         justify-content: center;
         z-index: 99;
     }
-    #nav.responsive a{
+
+    #nav.responsive a {
         font-size: 30px;
         color: white;
         margin: 10px 0;
     }
-    #nav span{
+
+    #nav span {
         font-size: 30px;
         color: white;
         cursor: pointer;
         margin-top: 20px;
     }
-    #icono-nav{
-        display: block;
-        cursor: pointer;
-    }
 
-    .inicio{
-        height: auto; 
-    }
+    #icono-nav { display: block; }
 
-    .inicio .fila{
-        display: block;
-    }
+    /* Inicio */
+    .inicio { height: auto; }
 
-    .inicio .fila .col{
+    .inicio .fila { display: block; }
+
+    .inicio .fila .col {
         width: 100%;
         text-align: center;
     }
 
-    .inicio .fila .col h2{
-        margin-top: 20px;
-    }
+    .inicio .fila .col h2   { margin-top: 20px; }
 
-    .inicio .fila .col .contenedor-img{
+    .inicio .fila .col .contenedor-img {
         width: 50%;
-        margin-top: 30px;
+        margin: 30px auto 0;
     }
 
-    .servicios{
+    /* Servicios: columna única en móvil */
+    .servicios {
         position: static;
         padding: 20px;
-        margin-bottom: 10px;
+        margin-bottom: 40px;
+        top: 0;
     }
 
-    .servicios .fila{
-        display: block;
-        margin-bottom: 0;
+    .servicios .fila {
+        flex-direction: column;
+        gap: 16px;
     }
 
-    .servicios .fila .col{
-        width: 70%;
-        margin: auto;
+    .servicios .fila .col {
+        width: 100%;
     }
 
-    .servicios .fila .col .card{
+    /* Habilidades: mínimo 3 columnas en pantallas pequeñas */
+    .skills-poster-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .skill-item {
+        width: 100%;
+        height: 80px;
+    }
+
+    .poster {
+        width: 48px;
+        height: 48px;
+    }
+
+    /* Contacto */
+    .contacto { margin-top: 40px; }
+
+    .contacto .contenedor-contacto .fila {
+        flex-direction: column;
+    }
+
+    .contacto .contenedor-contacto .fila .col {
+        width: 100%;
+        text-align: center;
         margin-bottom: 20px;
     }
 
-    .habilidades{
-        position: static;
-        margin: 0 2px;
+    .contacto .contenedor-contacto .info {
+        display: inline-block;
+        text-align: left;
+        width: 48%;
+        vertical-align: top;
+        font-size: 13px;
+    }
+}
+
+/* Pantallas muy pequeñas: asegurar al menos 3 columnas de skills */
+@media screen and (max-width: 420px) {
+    .skills-poster-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
     }
 
-    .contacto .fila{
-        display: block !important;
+    .skill-item {
+        height: 70px;
     }
 
-    .contacto .fila .col{
-        text-align: center;
-        width: 100% !important;
-    }
-
-    .contacto .fila .col .info{
-        float: left;
-        font-size: 12px;
-        width: 25%;
-    }
-
-    .contacto .contenedor-contacto h2{
-        margin-bottom: 0;
+    .poster {
+        width: 40px;
+        height: 40px;
     }
 }
