@@ -153,7 +153,7 @@ function switchLanguage() {
    ═══════════════════════════════════════════════════════════════ */
 const EMAILJS_PUBLIC_KEY  = '4rLwnmmF8NASRiV80';
 const EMAILJS_SERVICE_ID  = 'service_rmcxhpc';
-const EMAILJS_TEMPLATE_ID = 'template_y0y7c2c';
+const EMAILJS_TEMPLATE_ID = 'template_af8eo9d';
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     icon:              'error',
                     confirmButtonText: t('alert.ok'),
                     background:        '#1a1a1a',
-                    color:             '#e8e6e1',
                     confirmButtonColor:'#c8f04c',
                 });
                 return;
@@ -240,7 +239,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         icon:              'success',
                         confirmButtonText: t('alert.ok'),
                         background:        '#1a1a1a',
-                        color:             '#e8e6e1',
                         confirmButtonColor:'#c8f04c',
                     });
                 })
@@ -253,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         icon:              'error',
                         confirmButtonText: t('alert.ok'),
                         background:        '#1a1a1a',
-                        color:             '#e8e6e1',
                         confirmButtonColor:'#c8f04c',
                     });
                 })
