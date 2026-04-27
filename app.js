@@ -48,6 +48,8 @@ const translations = {
         'alert.success.text':  "Thanks for reaching out — I'll get back to you soon.",
         'alert.error.title':   'Empty fields',
         'alert.error.text':    'Please fill in all fields before sending.',
+        'alert.fail.title':    'Something went wrong',
+        'alert.fail.text':     'Could not send your message. Please try again or email me directly.',
         'alert.ok':            'OK',
     },
 
@@ -96,6 +98,8 @@ const translations = {
         'alert.success.text':  '¡Gracias por escribir — me pondré en contacto contigo muy pronto!',
         'alert.error.title':   'Campos vacíos',
         'alert.error.text':    'Por favor llena todos los campos antes de enviar.',
+        'alert.fail.title':    'Algo salió mal',
+        'alert.fail.text':     'No se pudo enviar tu mensaje. Intenta de nuevo o escríbeme directamente.',
         'alert.ok':            'Aceptar',
     }
 };
@@ -145,9 +149,20 @@ function switchLanguage() {
 
 
 /* ═══════════════════════════════════════════════════════════════
+   EmailJS — config
+   ═══════════════════════════════════════════════════════════════ */
+const EMAILJS_PUBLIC_KEY  = '4rLwnmmF8NASRiV80';
+const EMAILJS_SERVICE_ID  = 'service_rmcxhpc';
+const EMAILJS_TEMPLATE_ID = 'template_y0y7c2c';
+
+
+/* ═══════════════════════════════════════════════════════════════
    DOM ready
    ═══════════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', function () {
+
+    // ── Init EmailJS ─────────────────────────────────────────────
+    emailjs.init(EMAILJS_PUBLIC_KEY);
 
     // ── Apply saved / default language ──────────────────────────
     applyLanguage();
@@ -162,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const btn  = card.querySelector('.toggle-btn');
         if (!text || !btn) return;
 
-        // Hide button if text fits without clipping
         function checkOverflow() {
             if (!text.classList.contains('expanded')) {
                 btn.style.display = text.scrollHeight > text.clientHeight + 2 ? 'inline-block' : 'none';
@@ -178,27 +192,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ── Contact form ─────────────────────────────────────────────
+    // ── Contact form con EmailJS ──────────────────────────────────
     const form = document.querySelector('.contact-form');
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            const name    = form.querySelector('input[type="text"]');
-            const email   = form.querySelector('input[type="email"]');
-            const message = form.querySelector('textarea');
 
-            if (name.value.trim() && email.value.trim() && message.value.trim()) {
-                name.value = email.value = message.value = '';
-                Swal.fire({
-                    title:             t('alert.success.title'),
-                    text:              t('alert.success.text'),
-                    icon:              'success',
-                    confirmButtonText: t('alert.ok'),
-                    background:        '#1a1a1a',
-                    color:             '#e8e6e1',
-                    confirmButtonColor:'#c8f04c',
-                });
-            } else {
+            const nameEl    = form.querySelector('input[type="text"]');
+            const emailEl   = form.querySelector('input[type="email"]');
+            const messageEl = form.querySelector('textarea');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            // Validación de campos vacíos
+            if (!nameEl.value.trim() || !emailEl.value.trim() || !messageEl.value.trim()) {
                 Swal.fire({
                     title:             t('alert.error.title'),
                     text:              t('alert.error.text'),
@@ -208,7 +214,54 @@ document.addEventListener('DOMContentLoaded', function () {
                     color:             '#e8e6e1',
                     confirmButtonColor:'#c8f04c',
                 });
+                return;
             }
+
+            // Estado de carga en el botón
+            const originalText    = submitBtn.textContent;
+            submitBtn.textContent = '...';
+            submitBtn.disabled    = true;
+
+            // Parámetros que deben coincidir con las variables de tu template en EmailJS
+            const templateParams = {
+                from_name:  nameEl.value.trim(),
+                from_email: emailEl.value.trim(),
+                message:    messageEl.value.trim(),
+                to_email:   'heryrobles30@gmail.com',
+            };
+
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(function () {
+                    // Éxito
+                    nameEl.value = emailEl.value = messageEl.value = '';
+                    Swal.fire({
+                        title:             t('alert.success.title'),
+                        text:              t('alert.success.text'),
+                        icon:              'success',
+                        confirmButtonText: t('alert.ok'),
+                        background:        '#1a1a1a',
+                        color:             '#e8e6e1',
+                        confirmButtonColor:'#c8f04c',
+                    });
+                })
+                .catch(function (error) {
+                    // Error de red o de EmailJS
+                    console.error('EmailJS error:', error);
+                    Swal.fire({
+                        title:             t('alert.fail.title'),
+                        text:              t('alert.fail.text'),
+                        icon:              'error',
+                        confirmButtonText: t('alert.ok'),
+                        background:        '#1a1a1a',
+                        color:             '#e8e6e1',
+                        confirmButtonColor:'#c8f04c',
+                    });
+                })
+                .finally(function () {
+                    // Restaurar botón siempre
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled    = false;
+                });
         });
     }
 
